@@ -51,9 +51,17 @@ img{display:block;max-width:100%}
 }
 .icons{
   display:flex;
+  align-items:center;
   gap:16px;
   color:#444057;
   font-size:1.1rem;
+}
+.icons img.top-profile{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid #ddd;
 }
 
 /* notice bar smaller */
@@ -272,11 +280,11 @@ img{display:block;max-width:100%}
   margin-bottom:auto;
 }
 
-/* drawer night view */
+/* drawer with white event page */
 .drawer{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+  background:#ffffff;
   display:none;
   z-index:50;
   overflow:auto;
@@ -287,23 +295,24 @@ img{display:block;max-width:100%}
   max-width:430px;
   min-height:100vh;
   margin:0 auto;
-  background:#111;
+  background:#ffffff;
 }
 .drawer-head{
   display:flex;
   justify-content:center;
   align-items:center;
   padding:18px 18px;
-  border-bottom:1px solid #222;
+  border-bottom:1px solid #eee;
   position:sticky;
   top:0;
-  background:#111;
+  background:#ffffff;
   z-index:2;
-  color:#fff;
+  color:#222;
 }
 .drawer-head span{
   font-size:1.2rem;
   font-weight:700;
+  color:#222;
 }
 .drawer-close{
   position:absolute;
@@ -313,7 +322,7 @@ img{display:block;max-width:100%}
   background:transparent;
   font-size:2.4rem;
   line-height:1;
-  color:#fff;
+  color:#444;
 }
 
 .drawer-card{padding:0 0 18px}
@@ -352,23 +361,14 @@ img{display:block;max-width:100%}
 /* pass image center */
 .pass-wrap{
   padding:16px;
-  background:#111;
+  background:#ffffff;
   display:flex;
   justify-content:center;
 }
 .event-image{
   max-width:100%;
   border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,.6);
-
-}
-
-.icons img.top-profile{
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  object-fit:cover;
-  border:1px solid #ddd;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 /* responsive tweaks */
@@ -382,13 +382,13 @@ img{display:block;max-width:100%}
 <body>
 <div class="page">
   <div class="top">
-  <div class="brand">SharePoint</div>
-  <div class="icons">
-    <span>⚙</span>
-    <span>?</span>
-    <img src="profile-pic.jpg" alt="Profile" class="top-profile">
+    <div class="brand">SharePoint</div>
+    <div class="icons">
+      <span>⚙</span>
+      <span>?</span>
+      <img src="profile-pic.jpg" alt="Profile" class="top-profile">
+    </div>
   </div>
-</div>
 
   <div class="notice">
     Your organization doesn't allow you to download, print, or sync using this device. To use these actions, use a device that's joined to a domain or marked compliant by Intune. For help, contact your IT department. <b>More info.</b>
@@ -479,7 +479,7 @@ img{display:block;max-width:100%}
   </section>
 </div>
 
-<!-- Night view event drawer -->
+<!-- Event drawer -->
 <div class="drawer" id="eventDrawer" aria-hidden="true">
   <div class="drawer-panel">
     <div class="drawer-head">
@@ -492,8 +492,8 @@ img{display:block;max-width:100%}
         <img src="profile-pic.jpg" alt="Profile photo" class="drawer-photo" id="drawerPhoto">
         <div>
           <div class="drawer-company">HCLTech</div>
-          <div class="drawer-name" id="drawerName">Sahil Chauhan</div>
-          <div class="drawer-id" id="drawerId">52210450</div>
+          <div class="drawer-name" id="drawerName">Saurabh Chamoli</div>
+          <div class="drawer-id" id="drawerId">52214110</div>
         </div>
       </div>
 
@@ -524,6 +524,7 @@ function openDrawer(e){
   drawerPhoto.src = sourceImg.getAttribute('src');
   drawer.classList.add('show');
 }
+
 card.addEventListener('click', openDrawer);
 btn.addEventListener('click', openDrawer);
 closeBtn.addEventListener('click', () => drawer.classList.remove('show'));
